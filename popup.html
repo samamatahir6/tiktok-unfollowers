@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body { width: 340px; margin: 0; padding: 14px; font: 13px/1.4 system-ui, sans-serif; background: #111; color: #eee; }
+    h1 { font-size: 15px; margin: 0 0 10px; color: #fe2c55; }
+    label { display: flex; justify-content: space-between; align-items: center; margin: 5px 0; }
+    input { width: 70px; padding: 4px; background: #222; color: #fff; border: 1px solid #444; border-radius: 6px; }
+    .row { display: flex; gap: 6px; margin-top: 12px; }
+    button { flex: 1; padding: 8px; border: 0; border-radius: 8px; font-weight: 600; cursor: pointer; color: #fff; background: #333; }
+    #start { background: #fe2c55; }
+    #status { margin-top: 10px; padding: 8px; background: #1c1c1c; border-radius: 8px; min-height: 20px; }
+    .logHead { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; color: #999; font-size: 12px; }
+    .logHead button { flex: none; padding: 2px 8px; font-size: 11px; font-weight: 400; }
+    #log { margin: 4px 0 0; padding: 8px; background: #000; border: 1px solid #222; border-radius: 8px; height: 170px; overflow: auto;
+           font: 11px/1.35 ui-monospace, Menlo, Consolas, monospace; white-space: pre-wrap; word-break: break-word; }
+    .ERROR { color: #ff6b6b; } .WARN { color: #ffd166; } .DEBUG { color: #777; }
+  </style>
+</head>
+<body>
+  <h1>TikTok Slow Unfollower</h1>
+  <label>Min delay (sec) <input id="minDelay" type="number" min="2"></label>
+  <label>Max delay (sec) <input id="maxDelay" type="number" min="3"></label>
+  <label>Batch size <input id="batchSize" type="number" min="1"></label>
+  <label>Rest after batch (sec) <input id="batchPause" type="number" min="10"></label>
+  <label>Daily cap <input id="dailyCap" type="number" min="1"></label>
+  <div class="row">
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+    <button id="diagnose">Diagnose</button>
+  </div>
+  <div id="status">Ready. Open any tiktok.com page and press Start.</div>
+  <div class="logHead"><span>Log</span><button id="clear">Clear</button></div>
+  <div id="log"></div>
+  <script src="popup.js"></script>
+</body>
+</html>

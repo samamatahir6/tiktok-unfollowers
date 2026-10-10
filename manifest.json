@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "TikTok Slow Unfollower",
+  "version": "1.2.0",
+  "description": "Opens your TikTok Following list and slowly unfollows accounts with human-like pacing.",
+  "permissions": ["storage", "scripting", "tabs"],
+  "host_permissions": ["https://*.tiktok.com/*"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "TikTok Slow Unfollower"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.tiktok.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
